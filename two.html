@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+      
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+      
+        .top {
+            background-image: url(/assets/registrationO.avif);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+           border-style: solid;
+           border-color: white;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            height: auto;
+            margin: 80px auto;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+        
+        input[type="number"],
+        input[type="date"],
+        input[type="range"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+       
+        @media only screen and (max-width: 768px) {
+            form {
+                width: 90%;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            form {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body class="top">
+    <form action="three.html">
+        <fieldset>
+            <legend style="color: #0d0d0d;">Enjoy Programming :-</legend>  <br>
+            <label for="mobileNumber" style="color: #0c0c0c;">Mobile Number:</label><br>
+            <input type="number" id="mobileNumber" name="mobileNumber" placeholder="Mobile Number"><br><br>
+
+            <label for="dob" style="color: #0d0d0d;">DOB:</label><br>
+            <input type="date" id="dob" name="dob"><br><br>
+
+            <label style="color: #0e0d0d;">Gender:</label><br>
+            <input type="radio" id="male" name="gender">
+            <label for="male" style="color: #FEFBF6;">Male</label>
+
+            <input type="radio" id="female" name="gender">
+            <label for="female" style="color: #FEFBF6;">Female</label>
+
+            <input type="radio" id="other" name="gender">
+            <label for="other" style="color: #FEFBF6;">Other</label><br><br>
+
+            <label style="color: #090909;">Batch Selection:</label><br>
+            <input type="radio" id="summer" name="batch">
+            <label for="summer" style="color: #FEFBF6;">Summer</label><br>
+
+            <input type="radio" id="winter" name="batch">
+            <label for="winter" style="color: #FEFBF6;">Winter</label><br>
+
+            <input type="radio" id="rainy" name="batch">
+            <label for="rainy" style="color: #FEFBF6;">Rainy Season</label><br><br>
+
+            <label style="color: #0b0b0b;">How do you rate your communication skills:</label><br>
+            <input type="range" id="communicationSkills" name="communicationSkills" min="0" max="10" value="5"><br><br>
+
+            <textarea name="query" placeholder="Any query" cols="50" rows="5"></textarea><br><br>
+
+            <input type="submit" value="Submit" style="background-color:#EEEDEB; color: #5F0F40; font-size: large;">
+        </fieldset>
+    </form>
+</body>
+
+</html>

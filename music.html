@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <style>
+        body {
+            background-image: url(/assets/pexels-vishnurnair-1105666.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+
+            padding: 0;
+            height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #000;
+
+            overflow: hidden;
+
+            font-family: Arial, sans-serif;
+
+
+        }
+
+
+        .container {
+
+            width: 500px;
+            height: 500px;
+
+            text-align: center;
+
+            padding: 20px;
+
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: linear-gradient(45deg, #66ff00, #ff0000, #0000ff, #ff0080);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        .controls {
+            margin-top: 200px;
+
+        }
+
+        .controls button {
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 0 10px;
+            border: none;
+            border-radius: 20px;
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .controls input[type="range"] {
+            width: 100%;
+
+        }
+
+        #songNameDisplay {
+            margin-top: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            color: white;
+            font-family: Arial, sans-serif;
+
+        }
+
+        .songImage {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 30px;
+            display: none;
+            border-radius: 20px;
+            margin-left: 200px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="songNameDisplay"></div>
+        <!-- Song images with IDs for individual songs -->
+        <img id="songImage1" class="songImage" src="/assets/lapataladies.jpg" height="400px" width="700px">
+        <img id="songImage2" class="songImage" src="/assets/jawan.jpg" height="100px" width="100px">
+        <img id="songImage3" class="songImage" src="/assets/yimmy.jpg" height="100px" width="100px">
+
+        <div class="controls">
+            <!-- Control buttons and volume slider -->
+            <button id="playPrevBtn">Previous</button>
+            <button id="playPauseBtn">Play</button>
+            <button id="playNextBtn">Next</button>
+            <input type="range" id="volumeControl" min="0" max="1" step="0.1" value="1" style="margin-top: 20px;">
+        </div>
+
+        <!-- Audio element for music playback -->
+        <audio id="audioPlayer" controls>
+            <source src="/assets/OSajniRe.mp3" type="audio/mpeg">
+            <source src="/assets/Chaleya.mp3" type="audio/mpeg">
+            <source src="/assets/YimmyYimmy.mp3" type="audio/mpeg">
+            <!-- Add more <source> elements for additional songs -->
+        </audio>
+    </div>
+
+    <!-- JavaScript to control music playback -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Get necessary elements from the DOM
+            const audioPlayer = document.getElementById("audioPlayer");
+            const playPauseBtn = document.getElementById("playPauseBtn");
+            const playNextBtn = document.getElementById("playNextBtn");
+            const playPrevBtn = document.getElementById("playPrevBtn");
+            const volumeControl = document.getElementById("volumeControl");
+            const songNameDisplay = document.getElementById("songNameDisplay");
+            const songImages = document.getElementsByClassName("songImage");
+            let currentSongIndex = 0;
+
+            // Event listener for play/pause button
+            playPauseBtn.addEventListener("click", function () {
+                if (audioPlayer.paused) {
+                    audioPlayer.play();
+                    playPauseBtn.textContent = "Pause";
+                } else {
+                    audioPlayer.pause();
+                    playPauseBtn.textContent = "Play";
+                }
+            });
+
+            // Event listener for next song button
+            playNextBtn.addEventListener("click", function () {
+                currentSongIndex = (currentSongIndex + 1) % audioPlayer.children.length;
+                audioPlayer.src = audioPlayer.children[currentSongIndex].src;
+                audioPlayer.play();
+            });
+
+            // Event listener for previous song button
+            playPrevBtn.addEventListener("click", function () {
+                currentSongIndex = (currentSongIndex - 1 + audioPlayer.children.length) % audioPlayer.children.length;
+                audioPlayer.src = audioPlayer.children[currentSongIndex].src;
+                audioPlayer.play();
+            });
+
+            // Event listener for volume control
+            volumeControl.addEventListener("input", function () {
+                audioPlayer.volume = volumeControl.value;
+            });
+
+            // Event listener when audio starts playing
+            audioPlayer.addEventListener("play", function () {
+                // Display current song name
+                songNameDisplay.textContent = audioPlayer.currentSrc.split("/").pop();
+                // Hide all song images
+                for (let i = 0; i < songImages.length; i++) {
+                    songImages[i].style.display = "none";
+                }
+                // Show image corresponding to current song
+                songImages[currentSongIndex].style.display = "block";
+            });
+
+            // Event listener when audio is paused
+            audioPlayer.addEventListener("pause", function () {
+                // Clear song name display
+                songNameDisplay.textContent = "";
+                // Hide all song images
+                for (let i = 0; i < songImages.length; i++) {
+                    songImages[i].style.display = "none";
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

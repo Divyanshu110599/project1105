@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Age</title>
+
+    <!-- CSS Styles -->
+    <style>
+        body {
+            background-color: rgb(6, 6, 6);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        input {
+            padding: 10px 20px;
+            border-radius: 10px;
+            outline: none;
+            margin-bottom: 20px;
+            width: 80%;
+            max-width: 300px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: black;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .background {
+            background-image: url(/assets/pexels-cottonbro-4669141.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+        @media only screen and (max-width: 600px) {
+            input {
+                width: 90%;
+            }
+
+            @media only screen and (max-width: 400px) {
+                input {
+                    width: 100%;
+                }
+            }
+        }
+    </style>
+
+    <!-- JavaScript for age calculation -->
+    <script>
+        function calculate() {
+            let age = document.getElementById("age").value; / Get age input /
+            if (age >= 18) {
+                document.write("Eligible For Voting");
+            } else {
+                document.write("Not Eligible For Voting"); 
+            }
+        }
+    </script>
+</head>
+
+<body class="background">
+  
+    <div class="container">
+        <input type="text" id="age" placeholder="Enter your age :">
+        <button type="submit" onclick="calculate()">click here</button> 
+    </div>
+</body>
+
+</html>

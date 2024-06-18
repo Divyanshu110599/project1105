@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Calculator</title>
+    <style>
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        
+        .container {
+            min-height: 120vh;
+            
+            max-width: 130%;
+            
+            display: flex;
+        
+            justify-content: center;
+            
+            align-items: center;
+            
+        }
+
+        
+        .background {
+            background-image: url(/assets/pexels-jason-deines-2993297-6110309.jpg);
+            
+            background-position: center;
+            
+            background-repeat: no-repeat;
+            
+            background-attachment: fixed;
+            
+            background-size: cover;
+            
+        }
+
+    
+        .calculator {
+            padding: 16px;
+            
+            box-shadow: 0 0 25px black;
+        
+            border: 2px solid rgb(116, 114, 114);
+        
+            border-radius: 17px;
+            
+            background-color: darkgrey;
+            
+        }
+
+        
+        .display {
+            width: 360px;
+            
+            height: 90px;
+
+            padding: 20px;
+            
+            border: none;
+            
+            outline: none;
+            
+            margin: 10px;
+            
+            background: black;
+            
+            color: white;
+            
+            font-size: 50px;
+        
+            font-weight: 200;
+            
+            text-align: right;
+        
+            cursor: pointer;
+        
+            border-radius: 10px;
+        
+        }
+
+        
+        button {
+            width: 70px;
+        
+            height: 50px;
+        
+            margin: 10px;
+    
+            background: rgb(62, 62, 60);
+
+            color: black;
+            
+            font-size: 32px;
+            
+            font-weight: 600;
+            
+            border: 1px solid grey;
+            
+            outline-offset: 3px;
+            
+            border-radius: 38px;
+            
+        }
+
+        
+        button:active {
+            background: black;
+    
+        }
+
+    
+        .opr {
+            background-color: orangered;
+            
+            font-weight: 700px;
+            
+            color: white;
+            
+        }
+        #ecc {
+            background: orangered;
+    
+            font-weight: 900px;
+        
+            color: white;
+            
+        }
+    </style>
+
+    <script>
+        // JavaScript for calculator functionality
+
+        let total = 0; // Variable to hold the total value
+        let displayString = ""; // String to hold the current displayed number
+        let action = 0; // Action indicator for operations
+
+        // Function to handle number input
+        function numberType(passnumber) {
+            displayString = displayString + passnumber.toString(); // Concatenate numbers
+            document.getElementById("display").innerHTML = displayString; // Display the updated number
+        }
+
+        // Function to handle addition operation
+        function add() {
+            total = Number(displayString); // Store current display as total
+            action = 1; // Set action for addition
+            displayString = ""; // Reset display
+
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+
+        // Function to handle subtraction operation
+        function sub() {
+            total = Number(displayString); // Store current display as total
+            action = 2; // Set action for subtraction
+            displayString = ""; // Reset display
+
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+
+        // Function to handle multiplication operation
+        function multiplication() {
+            total = Number(displayString); // Store current display as total
+            action = 3; // Set action for multiplication
+            displayString = ""; // Reset display
+
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+
+        // Function to handle division operation
+        function div() {
+            total = Number(displayString); // Store current display as total
+            action = 4; // Set action for division
+            displayString = ""; // Reset display
+
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+
+        // Function to handle percentage operation
+        function percentage() {
+            total = Number(displayString); // Store current display as total
+            action = 5; // Set action for percentage
+            displayString = ""; // Reset display
+
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+
+        // Function to calculate and display the result
+        function showResult() {
+            // Perform operation based on action type
+            if (action == 1) {
+                total = total + Number(displayString);
+            } else if (action == 2) {
+                total = total - Number(displayString);
+            } else if (action == 3) {
+                total = total * Number(displayString);
+            } else if (action == 4) {
+                total = total / Number(displayString);
+            } else if (action == 5) {
+                total = total % Number(displayString);
+            }
+
+            displayString = total; // Update display string with total
+            document.getElementById("display").innerHTML = displayString; // Display the result
+        }
+
+        // Function to clear the calculator
+        function clearFunction() {
+            total = 0; // Reset total
+            displayString = ""; // Clear display string
+            document.getElementById("display").innerHTML = ""; // Clear display
+        }
+
+        // Function to handle backspace functionality
+        function Backspace() {
+            displayString = displayString.substring(0, displayString.length - 1); // Remove last character
+            document.getElementById("display").innerHTML = displayString; // Update display
+        }
+    </script>
+</head>
+
+<body class="background">
+    <!-- Main container for centering -->
+    <div class="container">
+        <!-- Calculator container -->
+        <div class="calculator">
+            <!-- Display area -->
+            <div class="display" id="display"></div>
+
+            <!-- Rows of buttons for calculator -->
+            <div class="row">
+                <button id="Ac" type="button" class="opr" onclick="clearFunction()">AC</button>
+                <button id="Del" type="button" class="opr" onclick="Backspace()">DEL</button>
+                <button id="%" type="button" class="opr" onclick="percentage()">%</button>
+                <button id="/" type="button" class="opr" onclick="div()">÷</button>
+            </div>
+
+            <div class="row">
+                <button id="7" type="button" onclick="numberType(7)">7</button>
+                <button type="button" onclick="numberType(8)">8</button>
+                <button type="button" onclick="numberType(9)">9</button>
+                <button type="button" class="opr" onclick="multiplication()">x</button>
+            </div>
+
+            <div class="row">
+                <button type="button" onclick="numberType(4)">4</button>
+                <button type="button" onclick="numberType(5)">5</button>
+                <button type="button" onclick="numberType(6)">6</button>
+                <button type="button" class="opr" onclick="add()">+</button>
+            </div>
+
+            <div class="row">
+                <button type="button" onclick="numberType(1)">1</button>
+                <button type="button" onclick="numberType(2)">2</button>
+                <button type="button" onclick="numberType(3)">3</button>
+                <button type="button" class="opr" onclick="sub()">-</button>
+            </div>
+
+            <div class="row">
+                <button id="=/-" type="button" id="fff" onclick="numberType()">+/- </button>
+                <button type="button" id="fff" onclick="numberType(0)">0</button>
+                <button type="button" id="fff">.</button>
+                <button id="=" type="button" id="ecc" onclick="showResult()">=</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

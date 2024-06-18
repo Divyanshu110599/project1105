@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <title>Day Finder</title>
+
+  <style>
+
+
+    .container {
+      width: 400px;
+      height: 400px;
+      text-align: center;
+      padding-top: 30px;
+      border-radius: 5%;
+      border-style: solid;
+      margin-top: 10%;
+      margin-left: 35%;
+      background-color:white;
+
+    }
+
+    
+
+    .background {
+      background-image: url(/assets/pexels-thngocbich-1059383.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100%;
+      width: 100%;
+    }
+
+
+
+    
+
+    input {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 300px;
+      border-style: solid;
+    }
+
+
+    button {
+      padding: 10px 20px;
+      background-color: #000203;
+      color: #fff;
+      border: none;
+    }
+    
+
+
+    button:hover {
+      background-color: #f10505;
+    }
+
+    /*Output Message styling*/
+
+    p {
+      font-size: 25px;
+      font-weight: bold;
+      color: rgb(3, 3, 3);
+
+    }
+  </style>
+
+  <script>
+    function findDay() {
+      // Get the input value
+      var dayNumber = document.getElementById("dayInput").value;
+
+      // Array to hold days
+      var days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+
+      // Check if the input value is valid
+      if (dayNumber >= 1 && dayNumber <= 7) {
+        // Display the corresponding day
+        document.getElementById("dayResult").innerText = "Day " + dayNumber + " is " + days[dayNumber - 1] + ".";
+      } else {
+        // Display error message for invalid input
+        document.getElementById("dayResult").innerText = "Please enter a number between 1 and 7.";
+      }
+    }
+
+  </script>
+</head>
+
+<body class="background">
+  <div class="container">
+    <h1>Day Finder :-</h1>
+    <input type="number" id="dayInput" min="1" max="7" placeholder="Enter a number (1-7)">
+    <button onclick="findDay()">Find Day</button>
+    <p id="dayResult"></p>
+  </div>
+
+</body>
+
+</html>

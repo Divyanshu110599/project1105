@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        .main-container {
+            height: 100%;
+            width: 100%;
+            padding: 10px;
+            margin: 10px;
+        }
+
+        .start-button {
+
+            border-radius: 50px;
+            background-color: #32245c;
+            font-size: 70px;
+            color: rgb(8, 7, 7);
+            margin-left: 300.10px;
+            margin-top: 350px;
+            width: 900px;
+            height: 100px;
+        }
+
+        .display {
+            width: 90%;
+            height: 250px;
+            background-color: #32245c;
+            margin-left: 5%;
+            border-radius: 50px;
+            margin-top: 100px;
+            border-style: solid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .text-display {
+            font-size: 80px;
+            font-weight: 900;
+            color: white;
+
+        }
+
+        .button {
+            height: 100px;
+            width: 500px;
+            border-radius: 350px;
+            margin: 10px;
+            margin-left: 12%;
+            margin-top: 40px;
+            background-color: #32245c;
+            font-size: 25px;
+            color: white;
+            font-weight: bold;
+
+
+
+        }
+    </style>
+    <script>
+        // function for beginning button 
+        // hide and unhide function
+        function letsBegin() {
+            document.getElementById("play-button").hidden = true;
+            document.getElementById("main-body").hidden = false;
+            displayQuestion();
+        }
+
+        // using array question 
+        let questions = [
+            {
+                question: "01. Who wrote India's National Anthem ?",
+                answers: ["A.Lal Bahadur Shastri ", "B.RK Narayan  ", "C.Rabindranath Tagore  ", "D.Chetan Bhagat  "],
+                correct: 2
+            },
+            {
+                question: "02.How many major religions are there in India ?",
+                answers: ["A. 8 ", "B. 9 ", "C.6 ", "D. 7"],
+                correct: 2
+            },
+            {
+                question: "03.What does not grow on tree according to a popular Hindi saying?",
+                answers: ["A.Money ", "B.Fruits ", "C.Flowers ", "D.Leaves "],
+                correct: 1
+            },
+            {
+                question: "04. When is the National Hindi Diwas celebrated ?",
+                answers: ["A. 13 September", "B.15 August ", "C.14 July", "D.14 September"],
+                correct: 3
+            },
+            {
+                question: "05. How many states are there in India ?",
+                answers: ["A. 28", "B. 29", "C. 30", "D. 31"],
+                correct: 0
+            },
+            {
+                question: "06.Current Railway Minister of India is?",
+
+                answers: ["A.Ashwini Vaishnaw", "B.Mamta Banarjee", "C.Ram Vilash", "D.Piyush Goyal"],
+                correct: 0
+            },
+            {
+                question: "07.Which god is also known as 'Gauri Nandan'?",
+                answers: ["A.Hanuman", "B.Ganesha ", "C.Indra ", "D.Agni"],
+                correct: 1
+            },
+            {
+                question: "08.Which city is known as Pink City in India? ",
+                answers: ["A.Banglore ", "B.Jaipur ", "C.Maysore ", "D.Kochi"],
+               
+                correct: 1
+            },
+            {
+                question: "09.The value of π (Pai) was first given by? ",
+                answers: ["A.Bhaskara ", "B.Varahamihira ", "C.Aryabhatta ", "D.None of these "],
+                correct: 2
+            },
+            {
+                question: "10. 'The Bhopal Disaster' was result of which of the following?",
+                answers: ["A. Collapsing of a dam", "B.Great fire ", "C.Plague epidemic ", "D.None of these "],
+                correct: 3
+            }
+        ];
+        // question starting from one
+        let currentQuestionIndex = 0;
+        // questio and options 
+        function displayQuestion() {
+            const g = questions[currentQuestionIndex];
+            document.getElementById("text-display").innerHTML = g.question;
+            document.getElementById("option-one").innerHTML = g.answers[0];
+            document.getElementById("option-two").innerHTML = g.answers[1];
+            document.getElementById("option-three").innerHTML = g.answers[2];
+            document.getElementById("option-four").innerHTML = g.answers[3];
+        }
+        // question and correct or incorrect options function
+        function answer(givenAnswer) {
+            document.getElementById("loader").style.display = "block";
+            setTimeout(() => {
+                document.getElementById("loader").style.display = "none";
+                if (questions[currentQuestionIndex].correct === givenAnswer) {
+                    document.getElementById("text-display").innerHTML = "Spot on! That's the perfect response!!";
+                    document.getElementById("text-display").style.color = "green";
+                    currentQuestionIndex++;
+                    if (currentQuestionIndex < questions.length) {
+                        displayQuestion();
+                    } else {
+                        document.getElementById("text-display").innerHTML = "Your bank account has been credited with Rs. 7,00,00,000!";
+                    }
+                } else {
+                    document.getElementById("text-display").innerHTML = "Better luck next time.";
+                    document.getElementById("text-display").style.color = "red";
+                    currentQuestionIndex = 0;
+                    // time taken by loader
+                    setTimeout(displayQuestion, 2100);  // Delay before resetting to the first question
+                }
+            }, 2100);
+        }
+    </script>
+</head>
+
+<body
+    style="background-image: url(https://images.news18.com/webstories/2023/09/kbc23_int_14aug_landscape_thumb.jpg);  width: 100%; background-repeat: no-repeat; background-size: cover;">
+    <!-- start button -->
+    <button class="start-button" id="play-button" onclick="letsBegin()">PLAY NOW</button>
+    <!-- display -->
+    <div class="main-container" id="main-body" hidden="true">
+        <div class="display" id="container">
+            <h4 id="text-display" class="text-display"></h4>
+            <br>
+            <div id="loader" class="loader" id="loader" style="display: none;"></div>
+        </div>
+        <!-- buttons -->
+        <button class="button" id="option-one" onclick="answer(0)"></button>
+        <button class="button" id="option-two" onclick="answer(1)"></button>
+        <button class="button" id="option-three" onclick="answer(2)"></button>
+        <button class="button" id="option-four" onclick="answer(3)"></button>
+    </div>
+
+</body>
+
+</html>
+
+https://images.news18.com

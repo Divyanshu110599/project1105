@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/jpeg" href="./OIG1.jpeg" sizes="100x100">
+    <title>My HTML Projects</title>
+    <style>
+        @keyframes changeColor {
+            25% {
+                color: rgb(219, 52, 52);
+            }
+
+            50% {
+                color: rgb(48, 185, 48);
+            }
+
+            100% {
+                color: rgb(52, 52, 145);
+            }
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e4e4e4;
+            transition: background-color 0.3s ease;
+        }
+
+
+        body.dark-mode {
+            background-color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 48px;
+            margin-top: 20px;
+            animation: changeColor 5s infinite alternate, glow 2s infinite alternate;
+            color: #fff;
+
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            overflow: hidden;
+            transition: box-shadow 0.3s ease;
+            width: 300px;
+            height: 500px;
+            height: 400px;
+            position: relative;
+
+        }
+
+        body.dark-mode .project {
+            background-color: #444;
+            color: #fff;
+        }
+
+        .project:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .project img {
+            display: block;
+            width: 100%;
+            height: 80%;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-description {
+            padding: 20px;
+            text-align: center;
+        }
+
+        p {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .search-container {
+            text-align: center;
+            margin-bottom: 20px;
+            color: gray;
+        }
+
+        input[type="text"] {
+            width: 50%;
+            padding: 12px;
+            border: none;
+            border-radius: 20px;
+            font-size: 16px;
+            outline: none;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease;
+            background-color: #fff;
+
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+        }
+
+        ::placeholder {
+            color: #999;
+        }
+
+        .theme-switch-wrapper {
+            position: fixed;
+            right: 20px;
+            top: 20px;
+        }
+
+        .theme-switch {
+            display: inline-block;
+            height: 34px;
+            position: relative;
+            width: 60px;
+        }
+
+        .theme-switch input {
+            display: none;
+        }
+
+        .slider {
+            background-color: #ccc;
+            border-radius: 34px;
+            bottom: 0;
+            cursor: pointer;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: .4s;
+        }
+
+        .slider:before {
+            background-color: white;
+            border-radius: 50%;
+            bottom: 4px;
+            content: "";
+            height: 26px;
+            left: 4px;
+            position: absolute;
+            transition: .4s;
+            width: 26px;
+        }
+
+        input:checked+.slider {
+            background-color: #666;
+        }
+
+        input:checked+.slider:before {
+            transform: translateX(26px);
+        }
+
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+
+        body.dark-mode .project {
+            background-color: #333;
+        }
+
+        body.dark-mode p {
+            color: #fff;
+
+        }
+
+        body.dark-mode input[type="text"] {
+            background-color: #444;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark-mode input[type="text"]:focus {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+
+        body.dark-mode ::placeholder {
+            color: #aaa;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+
+    <h1>My Projects</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search projects..." class="search-container">
+    </div>
+    <div class="theme-switch-wrapper">
+        <label class="theme-switch" for="checkbox">
+            <input type="checkbox" id="checkbox">
+            <div class="slider round"></div>
+        </label>
+    </div>
+    <main>
+        <div class="project">
+            <a href="topthree.html"><img
+                    src="https://w0.peakpx.com/wallpaper/781/652/HD-wallpaper-dom-independence-day-dom-independence-india-republic-thumbnail.jpg"
+                    alt="Top 3 freedom fighters of India "></a>
+            <div class="project-description"> <br>
+                <p>Top 3 Freedom Fighters of India </p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="flag.html"><img
+                    src="https://w0.peakpx.com/wallpaper/592/72/HD-wallpaper-indian-flag-flag-happy-independence-day-india-indian-nation-republic-day-thumbnail.jpg"
+                    alt="India Flag"></a>
+            <div class="project-description"> <br>
+                <p>India Flag</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="one.html"><img
+                    src="https://img.freepik.com/free-vector/modern-online-registration-compositio_23-2147993866.jpg?size=626&ext=jpg&ga=GA1.1.893661214.1713419953&semt=ais"
+                    alt="Registration page"></a>
+            <div class="project-description"> <br>
+                <p>Registration Page</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="calculator.html"><img
+                    src="https://cdn.dribbble.com/users/157590/screenshots/7235667/media/9b4905623786622557a0f140b0972339.jpg?resize=320x240&vertical=center"
+                    alt="calculator"></a>
+            <div class="project-description"> <br>
+                <p>Calculator</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="kbcc.html"><img
+                    src="https://www.punarvasonline.com/wp-content/uploads/2023/08/KBC-2023_Amitabh-Bachchan.jpg"
+                    alt="KBC Project"></a>
+            <div class="project-description"> <br>
+                <p>KBC Project</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="music.html"><img
+                    src="https://images.unsplash.com/photo-1499415479124-43c32433a620?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fG11c2ljJTIwd2FsbHBhcGVyfGVufDB8fDB8fHww"
+                    alt="Music Player"></a>
+            <div class="project-description"> <br>
+                <p>Music Player</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="electricbill.html"><img
+                    src="https://img.freepik.com/premium-photo/words-bill-electricity-notebook-electric-wire-electricity-payment-concept_507676-2102.jpg"
+                    alt="Electricity Bill"></a>
+            <div class="project-description"> <br>
+                <p>Electricity Bill</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="vote.html"><img
+                    src="https://t4.ftcdn.net/jpg/02/79/36/41/240_F_279364111_1jwcvm4zRzWCdpP1vGaaF0Ft8xB3MWdE.jpg"
+                    alt="Vote Finder" width="50%"></a> <br>
+            <div class="project-description">
+                <p>Vote Finder</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="vowels.html"><img
+                    src="https://t4.ftcdn.net/jpg/01/80/47/57/240_F_180475792_LtMefUaFDrIBVIzp1W2dQHMaGujApCz1.jpg"
+                    alt="Vowel Checker"></a>
+            <div class="project-description"> <br>
+                <p>Vowel Checker</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="odd.html"><img
+                    src="data:image/jpeg;base64,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"
+                    alt="Even Odd Finder"></a>
+            <div class="project-description"> <br>
+                <p>Even Odd Finder</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="day.html"><img
+                    src="data:image/png;base64,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"
+                    alt="Game Project"></a>
+            <div class="project-description"> <br>
+                <p>Day Finder</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="largenumber.html"><img
+                    src="https://images.pexels.com/photos/1329292/pexels-photo-1329292.jpeg?auto=compress&cs=tinysrgb&w=600"
+                    alt="Game Project"></a>
+            <div class="project-description">
+                <p>Large Number Finder</p>
+            </div>
+        </div>
+        <div class="project">
+            <a href="kbc.html"><img
+                    src="https://www.punarvasonline.com/wp-content/uploads/2023/08/KBC-2023_Amitabh-Bachchan.jpg"
+                    alt="Game Project"></a>
+            <div class="project-description">
+                <p>KBC Game</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="studentdata.html"><img
+                    src="https://img.freepik.com/free-vector/flat-university-concept-background_23-2148189763.jpg?size=626&ext=jpg&ga=GA1.1.1120086336.1718609140&semt=ais_user"
+                    alt="Game Project"></a>
+            <div class="project-description">
+                <p>Student Search</p>
+            </div>
+        </div>
+
+        <div class="project">
+            <a href="formdata.html"><img
+                    src="https://img.freepik.com/free-vector/online-tutoring-app-software-abstract-concept-illustration-online-tutoring-session-video-chat-e-learning-scheduling-software-personal-learning-plan_335657-3485.jpg?size=626&ext=jpg&ga=GA1.1.1120086336.1718609140&semt=ais_user"
+                    alt="Game Project"></a>
+            <div class="project-description">
+                <p>Student Data Add</p>
+            </div>
+        </div>
+
+
+
+    </main>
+    <script>
+
+        // JavaScript for search functionality
+        const projects = document.querySelectorAll('.project');
+        const searchInput = document.getElementById('searchInput');
+
+        searchInput.addEventListener('input', function () {
+            const inputValue = this.value.trim().toLowerCase();
+
+            projects.forEach(project => {
+                const title = project.querySelector('p').textContent.toLowerCase();
+                if (title.includes(inputValue)) {
+                    project.style.display = 'block';
+                } else {
+                    project.style.display = 'none';
+                }
+            });
+        });
+
+        // JavaScript for theme switcher
+        const checkbox = document.getElementById('checkbox');
+        const body = document.body;
+
+        checkbox.addEventListener('change', function () {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+            } else {
+                body.classList.remove('dark-mode');
+            }
+        });
+    </script>
+</body>
+
+</html>

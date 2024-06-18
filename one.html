@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+       
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+       
+        .top {
+            background-image: url(/assets/pexels-ian-panelo-7457643.jpg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+           border-style: solid;
+            padding: 20px;
+            max-width: 500px;
+            width: 90%;
+            height: auto;
+        }
+
+        fieldset {
+            border: none;
+        }
+
+       
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+       
+        @media only screen and (max-width: 768px) {
+            form {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            form {
+                width: 90%;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+
+<body class="top">
+    
+    <!-- section -->
+    <form action="two.html">
+        <fieldset>
+            <h1 style="text-align: center; color: #111110;">ENTER YOUR DETAILS</h1>
+            <legend style="color: #0f0f0f;">Enjoy Programming</legend>
+
+            <label for="firstName" style="color: #090909;">First Name:</label><br>
+            <input type="text" id="firstName" name="firstName" placeholder="First Name"><br><br>
+
+            <label for="lastName" style="color: #080808;">Last Name:</label><br>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name"><br><br>
+
+            <h2 style="color: #060606;">What laptop do you know?</h2>
+            <input type="radio" id="windows" name="laptop">
+            <label for="windows" style="color: #FEFBF6;">Window</label><br>
+
+            <input type="radio" id="mac" name="laptop">
+            <label for="mac" style="color: #FEFBF6;">Mac</label><br>
+
+            <input type="radio" id="lenovo" name="laptop">
+            <label for="lenovo" style="color: #FEFBF6;">Lenovo</label><br><br>
+
+            <h2 style="color: #121212;">Select Your Education</h2>
+            <input type="radio" id="jrCollege" name="education">
+            <label for="jrCollege" style="color: #FEFBF6;">Jr.College</label><br>
+
+            <input type="radio" id="graduation" name="education">
+            <label for="graduation" style="color: #FEFBF6;">Graduation</label><br>
+
+            <input type="radio" id="postGraduation" name="education">
+            <label for="postGraduation" style="color: #FEFBF6;">Post Graduation</label><br>
+
+            <input type="radio" id="phd" name="education">
+            <label for="phd" style="color: #FEFBF6;">PHD</label><br><br>
+
+            <input type="submit" value="Submit" style="background-color:#EEEDEB; color: #5F0F40; font-size: large;">
+        </fieldset>
+    </form>
+</body>
+
+</html>

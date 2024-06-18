@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .form-container {
+            width: 100%;
+            
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .start-button {
+            margin-bottom: 20px;
+        }
+
+        .start-button:hover {
+            background-color: #45a049;
+        }
+
+        fieldset {
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        legend {
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 1px 2px rgb(5, 5, 5);
+            margin-bottom: 10px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="date"],
+        select {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .input-button {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-button input[type="radio"],
+        .input-button input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .buttons {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            margin: 0 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .buttons button:hover {
+            background-color: #45a049;
+        }
+
+        .page-two {
+            display: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #010202;
+            color: white;
+        }
+
+        
+        @media (max-width: 768px) {
+            .form-container {
+                padding: 15px;
+            }
+
+            input[type="text"],
+            input[type="number"],
+            input[type="date"],
+            select,
+            textarea {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container mt-4">
+        <!-- Buttons for switching between Entry Form and List -->
+        <div class="text-center">
+            <button class="btn btn-primary me-2" onclick="entryFunction()">ENTRY FORM</button>
+            <button class="btn btn-primary" onclick="listFunction()">LIST</button>
+        </div>
+
+        <!-- Entry Form -->
+        <div id="input" class="form-container">
+            <form action="#" method="get">
+                <fieldset>
+                    <legend class="text-center mb-4">ADMISSION FORM</legend>
+
+                    <!-- First Name -->
+                    <div class="mb-3">
+                        <label for="first-name" class="form-label">FIRST NAME:</label>
+                        <input type="text" class="form-control" id="first-name" name="fname"
+                            placeholder="ENTER YOUR FIRST NAME">
+                    </div>
+
+                    <!-- Last Name -->
+                    <div class="mb-3">
+                        <label for="last-name" class="form-label">LAST NAME:</label>
+                        <input type="text" class="form-control" id="last-name" name="lname"
+                            placeholder="ENTER YOUR LAST NAME">
+                    </div>
+
+                    <!-- Gender -->
+                    <div class="mb-3">
+                        <label class="form-label">GENDER:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="male" name="gender">
+                            <label class="form-check-label" for="male">MALE</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="female" name="gender">
+                            <label class="form-check-label" for="female">FEMALE</label>
+                        </div>
+                    </div>
+
+                    <!-- Education -->
+                    <div class="mb-3">
+                        <label class="form-label">EDUCATION:</label>
+                        <select class="form-select" id="edu-cation" name="education">
+                            <option value="SCHOOL">School</option>
+                            <option value="JR. COLLAGE">Jr. College</option>
+                            <option value="GRADUATION">Graduation</option>
+                            <option value="PG">PG</option>
+                        </select>
+                    </div>
+
+                    <!-- Contact Number -->
+                    <div class="mb-3">
+                        <label for="phone-no" class="form-label">CONTACT NO.:</label>
+                        <input type="number" class="form-control" id="phone-no" name="phone">
+                    </div>
+
+                    <!-- Address -->
+                    <div class="mb-3">
+                        <label for="address-l" class="form-label">ADDRESS:</label>
+                        <input type="text" class="form-control" id="address-l" name="address">
+                    </div>
+
+                    <!-- Roll No. -->
+                    <div class="mb-3">
+                        <label for="roll" class="form-label">ROLL NO.:</label>
+                        <input type="number" class="form-control" id="roll" name="roll">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="mb-3">
+                        <label for="email-id" class="form-label">EMAIL ID:</label>
+                        <input type="email" class="form-control" id="email-id" name="email" placeholder="abd@gmail.com">
+                    </div>
+
+                    <!-- DOB -->
+                    <div class="mb-3">
+                        <label for="birth-day" class="form-label">DOB:</label>
+                        <input type="date" class="form-control" id="birth-day" name="birth">
+                    </div>
+
+                    <!-- Communication Skill -->
+                    <div class="mb-3">
+                        <label for="range" class="form-label">COMMUNICATION SKILL:</label>
+                        <input type="range" class="form-range" id="range" name="range">
+                    </div>
+
+                    <!-- Languages Known -->
+                    <div class="mb-3">
+                        <label class="form-label">LANGUAGES KNOWN:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="HTML" name="HTML">
+                            <label class="form-check-label" for="HTML">HTML</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="CSS" name="CSS">
+                            <label class="form-check-label" for="CSS">CSS</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="PYTHON" name="PYTHON">
+                            <label class="form-check-label" for="PYTHON">PYTHON</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="RUBY" name="RUBY">
+                            <label class="form-check-label" for="RUBY">RUBY</label>
+                        </div>
+                    </div>
+
+                    <!-- About -->
+                    <div class="mb-3">
+                        <label for="message" class="form-label">TELL SOMETHING ABOUT YOURSELF:</label>
+                        <textarea class="form-control" id="message" name="message" rows="3"
+                            placeholder="Tell something about yourself"></textarea>
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="mb-3">
+                        <button type="reset" class="btn btn-secondary me-2">CLOSE</button>
+                        <button type="button" class="btn btn-success" onclick="addData()">SUBMIT</button>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <!-- Display Student Data -->
+        <div id="entry" class="form-container">
+            <h1 class="text-center mb-4">Student Data Information</h1>
+            <div id="show-info"></div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle (Popper.js included) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+    <!-- JavaScript functions -->
+    <script>
+        // Initialize student data array
+        let student = [];
+
+        // Function to show entry form
+        function entryFunction() {
+            document.getElementById("input").hidden = false;
+            document.getElementById("entry").hidden = true;
+        }
+
+        // Function to list student data
+        function listFunction() {
+            document.getElementById("input").hidden = true;
+            document.getElementById("entry").hidden = false;
+            showData();
+        }
+
+        // Function to add data from form
+        function addData() {
+            let information = {};
+
+            // Retrieve values from form fields
+            information["firstName"] = document.getElementById("first-name").value;
+            information["lastName"] = document.getElementById("last-name").value;
+            information["contactNo"] = document.getElementById("phone-no").value;
+            information["DOB"] = document.getElementById("birth-day").value;
+            information["email"] = document.getElementById("email-id").value;
+            information["education"] = document.getElementById("edu-cation").value;
+            information["address"] = document.getElementById("address-l").value;
+            information["rollNo"] = document.getElementById("roll").value;
+            information["communicationSkill"] = document.getElementById("range").value;
+            information["languages"] = [];
+            if (document.getElementById("HTML").checked) {
+                information["languages"].push("HTML");
+            }
+            if (document.getElementById("CSS").checked) {
+                information["languages"].push("CSS");
+            }
+            if (document.getElementById("PYTHON").checked) {
+                information["languages"].push("PYTHON");
+            }
+            if (document.getElementById("RUBY").checked) {
+                information["languages"].push("RUBY");
+            }
+            information["about"] = document.getElementsByName("message")[0].value;
+
+            student.push(information)
+;
+
+            // Call function to update the table immediately after adding the data
+            showData();
+        }
+
+        // Function to display student data in a table
+        function showData() {
+            let tableOutput = "<table class='table table-bordered table-striped mt-4'>";
+
+            // Table header
+            tableOutput += "<thead><tr><th>Name</th><th>Email</th><th>Date of Birth</th><th>Contact No</th><th>Education</th><th>Address</th><th>Roll No</th><th>Communication Skill</th><th>Languages Known</th><th>About</th></tr></thead>";
+
+            // Table body with student data
+            for (let i = 0; i < student.length; i++) {
+                let output = student[i];
+
+                let languages = output.languages.join(", "); // Joining languages array with comma
+
+                let outputString =
+                    '<tr><td class="name">' +
+                    output.firstName + " " + output.lastName +
+                    '</td><td class="mail-id">' +
+                    output.email +
+                    "</td><td class='dob'>" +
+                    output.DOB +
+                    "</td><td>" +
+                    output.contactNo +
+                    "</td><td>" +
+                    output.education +
+                    "</td><td>" +
+                    output.address +
+                    "</td><td>" +
+                    output.rollNo +
+                    "</td><td>" +
+                    output.communicationSkill +
+                    "</td><td>" +
+                    languages + // Adding languages
+                    "</td><td>" +
+                    output.about +
+                    "</td></tr>";
+                tableOutput += outputString;
+            }
+
+            tableOutput += "</table>";
+
+            document.getElementById("show-info").innerHTML = tableOutput;
+        }
+
+        // Initialize the entry form as hidden on page load
+        window.onload = function () {
+            document.getElementById("input").hidden = true;
+            document.getElementById("entry").hidden = false; // Display initial data
+        };
+    </script>
+</body>
+
+</html>

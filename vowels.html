@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- page Title -->
+
+    <title>Vowel or Consonant Checker</title>
+
+    <!-- Link css file -->
+
+    <style>
+       
+
+        .container {
+            width: 400px;
+            height: 400px;
+            text-align: center;
+            padding-top: 50px;
+            border-radius: 5%;
+            border-style: solid;
+            margin-top: 10%;
+            margin-left: 35%;
+        }
+
+       
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+
+        #result {
+            font-weight: bold;
+        }
+
+       
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+
+
+       
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+        }
+
+     
+
+        button:hover {
+            background-color: #037003;
+
+        }
+
+      
+
+        .background {
+            background-image: url(/assets/pexels-pixabay-278887.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+        }
+
+       
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+            color: #f6f6f8;
+        }
+    </style>
+
+</head>
+<!-- Background image Style -->
+
+<body class="background">
+
+    <!-- container -->
+
+    <div class="container">
+
+        <h1 style="color: rgb(8, 8, 8);">Vowel or Consonant Checker :-</h1>
+
+        <input type="text" id="characterInput" placeholder="Enter a character">
+
+        <!-- On Click Function -->
+
+        <button onclick="check()">Check</button>
+
+
+        <p id="result"></p>
+    </div>
+
+    <!-- Link JavaScript File -->
+
+    <script>
+        function check() {
+            var character = document.getElementById("characterInput").value.toLowerCase();
+            var vowels = ['a', 'e', 'i', 'o', 'u'];
+
+            if (character.length !== 1) {
+                document.getElementById("result").innerText = "Please enter only one character.";
+            } else if (!isNaN(character)) {
+                document.getElementById("result").innerText = "Please enter a valid character (a-z).";
+            } else if (vowels.indexOf(character) !== -1) {
+                document.getElementById("result").innerText = "The character '" + character + "' is a vowel.";
+            } else {
+                document.getElementById("result").innerText = "The character '" + character + "' is a consonant.";
+            }
+        }
+    </script>
+</body>
+
+</html>

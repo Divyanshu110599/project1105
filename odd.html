@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <!-- page Title -->
+
+    <title>Odd or Even Checker</title>
+
+    <!-- Link css file -->
+    <style>
+        .container {
+            width: 400px;
+            height: 400px;
+            text-align: center;
+
+            padding-top: 50px;
+            border-radius: 5%;
+            border-style: solid;
+            margin-top: 10%;
+            margin-left: 35%;
+        }
+
+
+
+        input {
+            padding: 10px;
+            margin-bottom: 20px;
+
+        }
+
+        .background {
+            background-image: url(/assets/pexels-magda-ehlers-pexels-1329297.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100%;
+            width: 100%;
+
+        }
+
+
+
+        button {
+            padding: 10px 20px;
+            background-color: #000001;
+            color: #fff;
+            border: none;
+        }
+
+
+
+        button:hover {
+            background-color: #037003;
+
+        }
+
+        /*Output Message styling*/
+
+        p {
+            font-size: 20px;
+            font-weight: bold;
+            color: green;
+        }
+    </style>
+
+
+    <script>
+
+
+        function checkOddEven() {
+
+            // Give Input Value
+
+            var number = document.getElementById("numberInput").value;
+
+            // Output
+
+            if (number % 2 === 0) {
+                document.getElementById("result").innerHTML = number + " is Even Number.";
+            } else {
+                document.getElementById("result").innerHTML = number + " is Odd Number.";
+            }
+        }
+
+
+    </script>
+</head>
+
+<body class="background">
+
+    <!-- container -->
+
+    <div class="container">
+        <h1> Odd or Even Checker :-</h1> <br> <br>
+        <input type="number" id="numberInput" placeholder="Enter a number">
+
+        <!-- On Click Function -->
+
+        <button onclick="checkOddEven()">Check</button>
+        <p id="result"></p>
+    </div>
+
+
+
+</body>
+
+</html>
